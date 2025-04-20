@@ -10,10 +10,6 @@ from telegram.ext import (
     ApplicationBuilder, CommandHandler, MessageHandler,
     ContextTypes, CallbackQueryHandler, filters
 )
-from keep_alive import keep_alive  # ← ملف السيرفر الصغير
-
-# ✅ شغّل السيرفر أولًا (هذا يبقي Replit شغال)
-keep_alive()
 
 # تحميل التوكن من env
 load_dotenv()
@@ -159,7 +155,6 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     else:
         await query.message.reply_text("❌ حدث خطأ.")
 
-# ✅ الآن نشغّل البوت
 if __name__ == "__main__":
     app = ApplicationBuilder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start_command))
@@ -167,5 +162,5 @@ if __name__ == "__main__":
     app.add_handler(MessageHandler(filters.PHOTO, handle_photo))
     app.add_handler(CallbackQueryHandler(button_handler))
 
-    print("✅ البوت يعمل الآن على Replit و UptimeRobot")
+    print("✅ البوت يعمل الآن على Render")
     app.run_polling()
