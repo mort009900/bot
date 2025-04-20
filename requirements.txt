@@ -7,3 +7,4 @@ opencv-python
 telegram
 nest-asyncio
 python-dotenv
+gdown
